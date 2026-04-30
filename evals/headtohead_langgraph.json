@@ -1,0 +1,1155 @@
+{
+  "schema": "headtohead_p4.v1",
+  "created": "2026-04-24T03:58:23Z",
+  "config": {
+    "targets": [
+      "Stripe",
+      "Anthropic",
+      "Figma"
+    ],
+    "n_runs": 5,
+    "model": "claude-haiku-4-5-20251001",
+    "judge_provider": "anthropic",
+    "judge_model": "claude-opus-4-6",
+    "modes": [
+      "fine",
+      "compound"
+    ]
+  },
+  "summary": {
+    "ac/compound": {
+      "n": 15,
+      "n_quality": 15,
+      "mean_input_tokens": 3245.7,
+      "std_input_tokens": 105.0,
+      "mean_output_tokens": 4750.7,
+      "std_output_tokens": 319.6,
+      "mean_wall_ms": 29898.1,
+      "std_wall_ms": 4333.7,
+      "mean_llm_calls": 6.0,
+      "mean_quality": 0.8149,
+      "std_quality": 0.0389
+    },
+    "ac/fine": {
+      "n": 15,
+      "n_quality": 15,
+      "mean_input_tokens": 5121.2,
+      "std_input_tokens": 127.9,
+      "mean_output_tokens": 6137.8,
+      "std_output_tokens": 308.2,
+      "mean_wall_ms": 38705.6,
+      "std_wall_ms": 2914.5,
+      "mean_llm_calls": 14.0,
+      "mean_quality": 0.8273,
+      "std_quality": 0.0333
+    },
+    "langgraph/compound": {
+      "n": 15,
+      "n_quality": 15,
+      "mean_input_tokens": 5572.3,
+      "std_input_tokens": 170.4,
+      "mean_output_tokens": 4017.6,
+      "std_output_tokens": 248.8,
+      "mean_wall_ms": 24422.3,
+      "std_wall_ms": 2550.6,
+      "mean_llm_calls": 6.0,
+      "mean_quality": 0.7976,
+      "std_quality": 0.0521
+    },
+    "langgraph/fine": {
+      "n": 15,
+      "n_quality": 15,
+      "mean_input_tokens": 10475.3,
+      "std_input_tokens": 439.2,
+      "mean_output_tokens": 6896.9,
+      "std_output_tokens": 617.0,
+      "mean_wall_ms": 33428.5,
+      "std_wall_ms": 3907.4,
+      "mean_llm_calls": 14.0,
+      "mean_quality": 0.8073,
+      "std_quality": 0.0416
+    }
+  },
+  "cells": [
+    {
+      "run_idx": 0,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5026,
+      "output_tokens": 5965,
+      "wall_ms": 38570.33487499575,
+      "quality": 0.7833333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.73,
+        "structure": 0.9
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## STRIPE: COMPETITIVE INTELLIGENCE BRIEF\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe has established itself as a global payment infrastructure leader, processing hundreds of billions in annual payment volume across 40+ countries with a $70 billion valuation as of February 2024. However, the company faces structural headwinds across three vectors: (1) erosion of its historical developer-experience moat as competitors have closed the API gap since 2020, (2) vulnerability in emerging mar",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 11289,
+      "output_tokens": 8275,
+      "wall_ms": 39106.31791599735,
+      "quality": 0.7799999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\nStripe operates as a market-leading financial infrastructure company with significant scale ($1 trillion+ payment volume in 2023), but faces eroding competitive differentiation and geographic constraints. The company's historical moat of developer-experience superiority has substantially deteriorated since 2020, with competitors closing the API gap meaningfully. Stripe maintains a robust private valuation (~$70 billion as of February",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3145,
+      "output_tokens": 4818,
+      "wall_ms": 34506.44308399933,
+      "quality": 0.7966666666666667,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe has established itself as a leading global payment infrastructure platform, processing $1 trillion in annual payment volume and commanding a $70 billion valuation as of February 2024. The company faces fragmented competitive pressure across distinct market segments\u2014Adyen in enterprise, Braintree in developer-first merchants, Square in SMB in-person payments, and regional champions (Razorpay, dLocal) i",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5692,
+      "output_tokens": 4210,
+      "wall_ms": 22550.575042012497,
+      "quality": 0.6733333333333333,
+      "quality_details": {
+        "coverage": 0.62,
+        "grounding": 0.58,
+        "structure": 0.82
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\n\nStripe remains a leading global payment infrastructure platform with $70 billion valuation (February 2024) and $1 trillion in annual payment volume across 40+ countries, but faces material competitive and strategic headwinds. Core API differentiation\u2014historically Stripe's primary moat\u2014has eroded since 2020 as competitors including Adyen, PayPal/Braintree, and Block/Square have narrowed the developer experience gap. Geographic and ve",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5316,
+      "output_tokens": 6031,
+      "wall_ms": 37652.11199999612,
+      "quality": 0.8300000000000001,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n---\n\n### EXECUTIVE SUMMARY\n\nAnthropic is a San Francisco-based AI safety company founded in 2021 that has achieved rapid commercial traction with its Claude model family, growing annualized revenue from ~$100M (early 2024) to $800M+ (year-end 2024) through API monetization. The company holds a distant second position to OpenAI in estimated API revenue market share but is growing faster on a percentage basis, supported by differentia",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10255,
+      "output_tokens": 6477,
+      "wall_ms": 32458.739207999315,
+      "quality": 0.7633333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.65,
+        "structure": 0.92
+      },
+      "output_head": "# ANTHROPIC: COMPETITIVE INTELLIGENCE BRIEF\n\n## EXECUTIVE SUMMARY\n\nAnthropic is a rapidly scaling AI safety-focused company that has achieved $800M annualized revenue (8x growth in 2024) and a $60B+ valuation through strong product-market fit in the API and enterprise segments. The company differentiates on safety research, longer context windows (200K standard, 1M for select customers), and developer ergonomics, positioning Claude near the top of independent benchmarks for coding and reasoning ",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3255,
+      "output_tokens": 4749,
+      "wall_ms": 33490.891542009194,
+      "quality": 0.7399999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.62,
+        "structure": 0.88
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n**EXECUTIVE SUMMARY**\n\nAnthropic is a heavily capitalized ($10B+ funded, $60B+ valuation) AI frontier lab founded in 2021 that has achieved 8x revenue growth in 2024 ($100M to $800M annualized) through enterprise API consumption of its Claude model family. The company differentiates on safety research (Constitutional AI), extended context windows (200K standard, 1M for select customers), and developer ergonomics rather than competin",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5282,
+      "output_tokens": 3572,
+      "wall_ms": 23040.01274998882,
+      "quality": 0.7733333333333334,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.68,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## EXECUTIVE SUMMARY\n\nAnthropic has emerged as the second-largest LLM provider by API revenue, with significantly faster percentage-basis market share growth than OpenAI despite OpenAI's dominant consumer position through ChatGPT. The company differentiates through safety-first positioning, extended context windows (200K tokens standard, 1M for select customers), developer ergonomics, and strong technical performance on coding and reasoning benchmarks",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5098,
+      "output_tokens": 5908,
+      "wall_ms": 35533.624667004915,
+      "quality": 0.8733333333333334,
+      "quality_details": {
+        "coverage": 0.88,
+        "grounding": 0.82,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has achieved near-dominant market share in collaborative design tools, with over 70% adoption among product designers at technology companies. The company's competitive position strengthened following Adobe's failed $20 billion acquisition attempt (terminated September 2022) and the subsequent wind-down of Adobe XD (2023) and InVision's market exit (2024), eliminating two historical rivals. Figma's brow",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10855,
+      "output_tokens": 7164,
+      "wall_ms": 34380.51208299294,
+      "quality": 0.8433333333333334,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.93
+      },
+      "output_head": "# FIGMA COMPETITIVE INTELLIGENCE BRIEF\n\n## EXECUTIVE SUMMARY\n\nFigma commands near-dominant market share (70%+ adoption among professional designers at technology companies) following the 2023 shutdown of Adobe XD and 2024 exit of InVision from the design-tool market, significantly consolidating its competitive moat. The company is diversifying beyond core design through FigJam (whiteboarding), Dev Mode (developer tooling), Figma Slides (presentations), and AI-assisted features to defend against ",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3241,
+      "output_tokens": 4360,
+      "wall_ms": 24883.783541998127,
+      "quality": 0.85,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has achieved near-monopoly status in professional product-design teams at technology companies, with designer adoption exceeding 70% and commanding a $20 billion valuation at the time of Adobe's failed acquisition. The company's competitive moat is reinforced by significant regulatory headwinds that deterred consolidation, sustained ARR growth to $600+ million, and aggressive portfolio expansion into ad",
+      "error": ""
+    },
+    {
+      "run_idx": 0,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5452,
+      "output_tokens": 3890,
+      "wall_ms": 21591.09625000565,
+      "quality": 0.8566666666666666,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.82,
+        "structure": 0.93
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma maintains near-dominant market position among professional product-design teams at technology companies, with designer adoption above 70%, reinforced by the 2023 shutdown of Adobe XD and 2024 exit of InVision from the design-tool market. The company has successfully expanded its product portfolio beyond core design tooling\u2014adding FigJam (whiteboarding), Dev Mode (developer workflows), and Figma Slides (collaborative presentatio",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 4918,
+      "output_tokens": 6414,
+      "wall_ms": 37248.69029200636,
+      "quality": 0.8066666666666666,
+      "quality_details": {
+        "coverage": 0.78,
+        "grounding": 0.72,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe is a Dublin- and San Francisco-based financial infrastructure company founded in 2010 that processes over $1 trillion in annual payment volume across 40+ countries, valued at $70 billion as of February 2024. The company faces intensifying competition from established peers (Adyen in enterprise omnichannel, PayPal/Braintree in developer-first online payments, Block/Square in US SMB in-person payments) ",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 11531,
+      "output_tokens": 8186,
+      "wall_ms": 40839.40429100767,
+      "quality": 0.7799999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.92
+      },
+      "output_head": "# STRIPE: COMPETITIVE INTELLIGENCE BRIEF\n\n## EXECUTIVE SUMMARY\n\nStripe remains a significant player in global payment infrastructure with $1 trillion in annual payment volume across 40+ countries and a $70 billion valuation (as of February 2024). However, the company faces a critical inflection point: its historical competitive moat in developer experience (clean APIs, documentation, onboarding) has largely eroded as rivals including Adyen, PayPal/Braintree, and Block have closed the API gap sin",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3157,
+      "output_tokens": 5639,
+      "wall_ms": 42086.81933299522,
+      "quality": 0.7966666666666667,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## Competitive Intelligence Brief: Stripe\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe has established itself as the developer-centric leader in digital payments processing, but faces intensifying competitive pressures across multiple market segments. The company's historical differentiation\u2014superior APIs, clean developer experience, and fast onboarding\u2014has been substantially eroded by competitor improvements since 2020, forcing repositioning around adjacent financial services. With a $",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5754,
+      "output_tokens": 4383,
+      "wall_ms": 25394.161500007613,
+      "quality": 0.8066666666666666,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\n\nStripe remains the dominant developer-centric payment infrastructure platform, processing over $1 trillion in annual payment volume across 40+ countries from its Dublin and South San Francisco headquarters. However, the company faces a fragmenting competitive landscape where historical differentiation through superior APIs has meaningfully eroded since 2020, while regionally-specialized competitors (Adyen in Europe/enterprise, Block",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5124,
+      "output_tokens": 5553,
+      "wall_ms": 37887.54783300101,
+      "quality": 0.8466666666666667,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.8,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n---\n\n### EXECUTIVE SUMMARY\n\nAnthropic is a 2021-founded AI safety-focused company developing Claude, a large language model competing against OpenAI's ChatGPT, Google DeepMind's Gemini, Meta's Llama, and emerging challengers like Mistral AI and xAI's Grok. The company has achieved rapid revenue growth ($100M annualized at start of 2024 to $800M by year-end) and a $60B+ valuation through strong enterprise API adoption, but remains a ",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 9904,
+      "output_tokens": 5968,
+      "wall_ms": 26308.442916997592,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.75,
+        "structure": 0.95
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## EXECUTIVE SUMMARY\n\nAnthropic is a safety-focused AI lab founded in 2021 that has achieved substantial market traction with its Claude family of LLMs, growing annualized revenue from ~$100M to $800M+ by year-end 2024 while maintaining a valuation exceeding $60B. The company operates as a distant second to OpenAI in API revenue market share but is growing faster on a percentage basis, competing across consumer chat, developer APIs, and enterprise cha",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3219,
+      "output_tokens": 4654,
+      "wall_ms": 25643.131375007215,
+      "quality": 0.8300000000000001,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## EXECUTIVE SUMMARY\n\nAnthropic has emerged as the second-largest player in the generative AI market by API revenue, growing annualized revenue from ~$100M to $800M+ in 2024 while scaling its workforce from 300 to 700+ employees. The company differentiates through safety-focused research, extended context windows (200K\u20131M tokens), and developer ergonomics, positioning Claude as a premium alternative to OpenAI's dominant ChatGPT. However, Anthropic faces intensifying competitive",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5659,
+      "output_tokens": 3920,
+      "wall_ms": 27030.716459004907,
+      "quality": 0.7799999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.92
+      },
+      "output_head": "# ANTHROPIC: COMPETITIVE INTELLIGENCE BRIEF\n\n## Executive Summary\nAnthropic, a safety-first AI lab founded in 2021, is rapidly scaling as a credible alternative to OpenAI in the large language model market, with annualized revenue growing from ~$100M to >$800M in 2024 and valuation rising from ~$40B to >$60B. The company differentiates on safety research, extended context windows (200K-1M tokens), and developer ergonomics, achieving strong independent benchmark rankings on coding and reasoning t",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5350,
+      "output_tokens": 6003,
+      "wall_ms": 40040.082583000185,
+      "quality": 0.86,
+      "quality_details": {
+        "coverage": 0.85,
+        "grounding": 0.78,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has established near-dominant market position in collaborative design software, with >70% adoption among professional product-design teams at technology companies, following the strategic exits of primary competitors Adobe XD (discontinued 2023) and InVision (exited 2024). The company's $20 billion valuation (September 2022) and >$600 million ARR (2024) reflect strong market validation, though the faile",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10357,
+      "output_tokens": 6664,
+      "wall_ms": 28993.716375000076,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma maintains near-dominant market position in professional design tools with 70%+ usage among designers at technology companies, bolstered by its defensible browser-native architecture and real-time multiplayer capabilities. Primary historical competitor Adobe XD was effectively wound down following a failed $20 billion acquisition attempt, removing the most significant incumbent threat. However, Figma faces emerging pressure from",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3513,
+      "output_tokens": 4739,
+      "wall_ms": 27033.581124997,
+      "quality": 0.85,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## FIGMA COMPETITIVE INTELLIGENCE BRIEF\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has achieved near-dominant market position in design collaboration, with over 70% designer adoption among technology companies, following Adobe's effective wind-down of XD (2023) and InVision's exit from the market (2024). The company is expanding beyond core design tools through FigJam (whiteboarding), Figma Slides (presentations), and Dev Mode (developer integration), signaling a shift toward enterpris",
+      "error": ""
+    },
+    {
+      "run_idx": 1,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5556,
+      "output_tokens": 4065,
+      "wall_ms": 30713.35824999551,
+      "quality": 0.8300000000000001,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma has established near-dominant market position in professional design tools, with 70%+ adoption among product designers at technology companies, following its pioneering introduction of the first widely-adopted browser-based collaborative design platform. The company's core competitive moat derives from real-time multiplayer editing capabilities and URL-accessible design files that transformed industry collaboration patterns, si",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 4954,
+      "output_tokens": 6425,
+      "wall_ms": 38401.044625003124,
+      "quality": 0.8066666666666666,
+      "quality_details": {
+        "coverage": 0.78,
+        "grounding": 0.72,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## STRIPE: COMPETITIVE INTELLIGENCE BRIEF\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe is a Dublin and South San Francisco-headquartered financial infrastructure company founded in 2010 that processes payments across 40+ countries and crossed $1 trillion in total payment volume in 2023. The company faces intensifying competition from established players (Adyen in Europe, PayPal/Braintree, Block/Square in SMB in-person payments) and regional champions (Razorpay in India, dLocal in Latin ",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 9968,
+      "output_tokens": 6945,
+      "wall_ms": 37778.386833000695,
+      "quality": 0.7533333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.62,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\n\nStripe remains the dominant developer-focused payment infrastructure platform, processing over $1 trillion in annual payment volume across 40+ countries with a $70 billion valuation as of February 2024. However, the company faces material competitive erosion in its historical core moat\u2014developer experience and API design\u2014as competitors including Adyen, PayPal/Braintree, and Block have \"meaningfully closed the API gap\" since 2020. St",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3153,
+      "output_tokens": 4867,
+      "wall_ms": 32459.458083001664,
+      "quality": 0.7966666666666667,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## STRIPE: COMPETITIVE INTELLIGENCE BRIEF\n\n### EXECUTIVE SUMMARY\n\nStripe has established itself as a leading fintech infrastructure company, processing over $1 trillion in annual payment volume and recovering to a ~$70 billion valuation by February 2024 following prior market volatility. The company faces intensifying competitive pressure in its core developer-first payments business, with competitors meaningfully closing API quality and experience gaps since 2020, while Stripe",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5818,
+      "output_tokens": 4454,
+      "wall_ms": 24056.84945800749,
+      "quality": 0.7799999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## Executive Summary\n\nStripe is a dominant global financial infrastructure platform processing over $1 trillion in annual payment volume across 40+ countries, with a current valuation of $70 billion (February 2024). The company faces intensifying competitive pressure from well-funded rivals (Adyen, PayPal/Braintree, Block/Square) and local champions (Razorpay, dLocal) that have meaningfully closed Stripe's historical API and developer experience advantag",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5160,
+      "output_tokens": 6265,
+      "wall_ms": 39221.64558399527,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n---\n\n### EXECUTIVE SUMMARY\n\nAnthropic is a San Francisco-based AI safety company founded in 2021 that has achieved rapid commercialization of its Claude large language model, growing annualized revenue 8x to approximately $800 million by end of 2024. The company operates in a fragmented but increasingly competitive market dominated by OpenAI (ChatGPT), with secondary challengers including Google DeepMind (Gemini), Meta (Llama), Mist",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10493,
+      "output_tokens": 6682,
+      "wall_ms": 31224.052958001266,
+      "quality": 0.7600000000000001,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.68,
+        "structure": 0.88
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## EXECUTIVE SUMMARY\n\nAnthropic is positioned as the distant second to OpenAI in API revenue market share but is growing faster on a percentage basis, commanding a $60B+ valuation by late 2024 and $800M+ annualized revenue. The company differentiates through safety research, extended context windows (200K standard, 1M for premium customers), and superior coding/reasoning benchmarks, but faces structural distribution disadvantages versus hyperscaler-bu",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3255,
+      "output_tokens": 4320,
+      "wall_ms": 27646.542000002228,
+      "quality": 0.7600000000000001,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.68,
+        "structure": 0.88
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n---\n\n### EXECUTIVE SUMMARY\n\nAnthropic has emerged as the second-largest player in the generative AI market, trailing OpenAI but growing API revenue at a faster percentage rate. The company differentiates primarily through safety research infrastructure and Constitutional AI methodology, positioning itself distinctly from competitors on governance and alignment. With $60+ billion valuation (late 2024) and $800+ million annualized rev",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5357,
+      "output_tokens": 3607,
+      "wall_ms": 28975.572499999544,
+      "quality": 0.8066666666666666,
+      "quality_details": {
+        "coverage": 0.78,
+        "grounding": 0.72,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## Executive Summary\n\nAnthropic, founded in 2021 and backed by over $10 billion in funding, has emerged as the second-largest competitor to OpenAI in the commercial LLM market with rapidly accelerating revenue growth (8x increase to >$800 million annualized in 2024). The company differentiates through a safety-first positioning, extended context windows (200K\u20131M tokens), and constitutional AI research, while competing across consumer (claude.ai), deve",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5086,
+      "output_tokens": 5832,
+      "wall_ms": 34710.297666009865,
+      "quality": 0.8833333333333333,
+      "quality_details": {
+        "coverage": 0.88,
+        "grounding": 0.82,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## FIGMA: Competitive Intelligence Brief\n\n### Executive Summary\n\nFigma has achieved near-dominant market position in collaborative design tooling, holding >70% adoption among professional product-design teams at technology companies following the exit or stagnation of major competitors (Adobe XD discontinued in 2023; InVision exited market in 2024; Sketch constrained to Mac-only platform). The company has diversified its product portfolio beyond core UI design into whiteboardin",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10121,
+      "output_tokens": 6655,
+      "wall_ms": 35933.66804100515,
+      "quality": 0.8566666666666666,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.8,
+        "structure": 0.95
+      },
+      "output_head": "# FIGMA COMPETITIVE INTELLIGENCE BRIEF\n\n## EXECUTIVE SUMMARY\n\nFigma holds near-dominant market share among professional product-design teams at technology companies, with designer surveys consistently showing usage above 70%, and has solidified its competitive position following the collapse of Adobe's acquisition attempt and the 2023\u20132024 exits of primary competitors (Adobe XD discontinuation, InVision's market exit). The company is diversifying its product portfolio\u2014adding FigJam for whiteboar",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3461,
+      "output_tokens": 4793,
+      "wall_ms": 27648.395958996844,
+      "quality": 0.8566666666666666,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.8,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n**EXECUTIVE SUMMARY**\n\nFigma has consolidated near-dominant market position in professional product design, with 70%+ adoption among technology-company design teams. The collapse of Adobe's $20 billion acquisition attempt (September 2022\u2013December 2023) eliminated Figma's primary historical competitor and reduced near-term consolidation risk, while InVision's 2024 market exit further reduced competitive fragmentation. Figma is responding",
+      "error": ""
+    },
+    {
+      "run_idx": 2,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5455,
+      "output_tokens": 4016,
+      "wall_ms": 24060.43516698992,
+      "quality": 0.8433333333333334,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.93
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## Executive Summary\nFigma has achieved near-dominant market position in browser-based collaborative design, with 70%+ adoption among professional product-design teams, after eliminating its primary competitor (Adobe XD in 2023) and witnessing market consolidation (InVision's 2024 exit). The company is aggressively expanding beyond core design tooling\u2014launching Dev Mode, Figma Slides, and AI-assisted features\u2014while managing emerging threats from new AI-ge",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5074,
+      "output_tokens": 6755,
+      "wall_ms": 38576.14629200543,
+      "quality": 0.7733333333333334,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.68,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n---\n\n## STRIPE: Competitive Intelligence Brief\n\n### EXECUTIVE SUMMARY\n\nStripe is a private financial infrastructure company (founded 2010, headquartered in Dublin with US operations in South San Francisco) processing over $1 trillion in annual payment volume across 40+ countries. The company has recovered valuation momentum ($50B \u2192 $70B, Feb 2024) and maintains cash-flow positivity despite a 14% workforce reduction in 2022, positioning it as a scaled player in global payments i",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10325,
+      "output_tokens": 6814,
+      "wall_ms": 31529.87512499385,
+      "quality": 0.7766666666666667,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.73,
+        "structure": 0.88
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\n\nStripe remains the leading developer-centric payments platform globally, processing over $1 trillion in annual payment volume across 40+ countries. However, the company faces intensifying competitive pressure from well-capitalized public rivals (Adyen, PayPal/Braintree, Block/Square) who have substantially closed Stripe's historical API differentiation gap since 2020. Geographic expansion faces entrenched incumbents in emerging mark",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3109,
+      "output_tokens": 4630,
+      "wall_ms": 29595.21866599971,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.78,
+        "grounding": 0.82,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n---\n\n### EXECUTIVE SUMMARY\n\nStripe dominates the developer-first payments market with a comprehensive platform spanning card processing, marketplace payouts, fraud prevention, and banking-as-a-service. The company has recovered from significant valuation correction\u2014declining from $95B (2021) to $50B (early 2023), rebounding to $70B (February 2024)\u2014and crossed $1 trillion in payment volume in 2023, validating market demand despite finte",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5383,
+      "output_tokens": 3891,
+      "wall_ms": 22628.308667000965,
+      "quality": 0.7933333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.78,
+        "structure": 0.88
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## Executive Summary\nStripe remains a dominant financial infrastructure platform processing hundreds of billions in annual payment volume across 40+ countries, with a diversified product suite extending beyond payments into treasury, tax, and AI-powered fraud detection. However, the company faces material competitive pressure as rivals have meaningfully closed the API and developer-experience differentiation gap since 2020, while specialized competitors ",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5160,
+      "output_tokens": 6324,
+      "wall_ms": 45975.94812500756,
+      "quality": 0.8300000000000001,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.75,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n---\n\n### EXECUTIVE SUMMARY\n\nAnthropic is a San Francisco-based AI safety company founded in 2021 that has rapidly scaled to >$800M annualized revenue by year-end 2024 and achieved a valuation exceeding $60 billion. The company competes directly with OpenAI (ChatGPT/API), Google (Gemini/Vertex AI), Meta (Llama), and hyperscaler-bundled offerings (AWS Bedrock, Azure OpenAI), while differentiating on safety-first research, extended con",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10323,
+      "output_tokens": 6572,
+      "wall_ms": 30608.29891700996,
+      "quality": 0.8233333333333333,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.72,
+        "structure": 0.93
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n**Confidential | One-Page Summary**\n\n---\n\n## EXECUTIVE SUMMARY\n\nAnthropic is a capital-rich, fast-growing AI safety company that has achieved $60B+ valuation and $800M+ annualized revenue by year-end 2024, establishing itself as a credible second competitor to OpenAI in enterprise API and developer channels. The company differentiates on safety research (constitutional AI, interpretability, red-teaming), long context windows (200K standard, 1M availabl",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3255,
+      "output_tokens": 5104,
+      "wall_ms": 29900.053292003577,
+      "quality": 0.79,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.73,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n### EXECUTIVE SUMMARY\n\nAnthropic has established itself as a credible second-mover in frontier large language models, commanding a $60 billion valuation (late 2024) and achieving 8x annualized revenue growth ($100M to $800M) within a single year. The company differentiates through safety research, extended context windows (200K\u20131M tokens), and developer ergonomics rather than competing on scale or brand recognition. Despite holding ",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5381,
+      "output_tokens": 3742,
+      "wall_ms": 22418.668708996847,
+      "quality": 0.7600000000000001,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.68,
+        "structure": 0.88
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## Executive Summary\n\nAnthropic has emerged as a distant but rapidly growing competitor to OpenAI in the large language model market, with annualized revenue growing 8x from $100 million (early 2024) to $800 million+ (year-end 2024) and valuation rising to $60 billion+. The company differentiates through safety research, extended context windows (200K tokens standard, 1M for select customers), and developer-focused tools, while competing across consum",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5266,
+      "output_tokens": 6514,
+      "wall_ms": 40752.92504200479,
+      "quality": 0.82,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.72,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has achieved near-monopoly status in browser-based collaborative design software, with 70%+ adoption among professional product-design teams at technology companies. The failed Adobe acquisition (December 2023, $1B break fee) eliminated the primary competitive threat and reinforced Figma's market dominance; Adobe subsequently halted XD development in 2023. With ARR exceeding $600 million and cash-flow p",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10143,
+      "output_tokens": 6239,
+      "wall_ms": 34090.99049998622,
+      "quality": 0.8833333333333333,
+      "quality_details": {
+        "coverage": 0.88,
+        "grounding": 0.82,
+        "structure": 0.95
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\nFigma maintains near-dominant market share (70%+ adoption) in professional product design, with primary competitive threats substantially diminished: Adobe ceased XD development in 2023 following a failed acquisition attempt, and InVision exited the design-tool market in 2024. Figma faces emerging competition from AI-assisted design entrants and niche players (Sketch, Framer, Penpot), but these pose limited displacement risk given Fig",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3241,
+      "output_tokens": 4611,
+      "wall_ms": 26110.922249994474,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has achieved near-monopoly status in professional UI design tooling, with 70%+ adoption among technology companies following the successful market displacement of historical competitors Adobe XD and Sketch. The failed Adobe acquisition in December 2023\u2014terminated by mutual agreement with a $1 billion break fee\u2014preserved Figma's independence and signaled regulatory concern about design-tool market consol",
+      "error": ""
+    },
+    {
+      "run_idx": 3,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5612,
+      "output_tokens": 4078,
+      "wall_ms": 22698.083333001705,
+      "quality": 0.9,
+      "quality_details": {
+        "coverage": 0.88,
+        "grounding": 0.87,
+        "structure": 0.95
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma has established near-dominant market share in collaborative design tools, with surveys showing 70%+ designer usage among professional product-design teams at technology companies. The company's December 2023 failed acquisition by Adobe\u2014terminated due to regulatory concerns from UK CMA and European Commission\u2014preserved its independence while signaling strong strategic value in the design-collaboration category. Figma is expandin",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 4930,
+      "output_tokens": 5763,
+      "wall_ms": 43518.4694579948,
+      "quality": 0.7733333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.9
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n**EXECUTIVE SUMMARY**\n\nStripe is a global financial infrastructure platform operating in 40+ countries, processing $1 trillion in payment volume (2023) with a February 2024 valuation of $70 billion. The company faces intensifying competitive pressure as rivals have significantly closed the API capability gap since 2020, eroding Stripe's historical differentiation in developer experience. While Stripe has expanded beyond pure payment pr",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10522,
+      "output_tokens": 7271,
+      "wall_ms": 33577.49829199747,
+      "quality": 0.75,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.65,
+        "structure": 0.88
+      },
+      "output_head": "# STRIPE COMPETITIVE INTELLIGENCE BRIEF\n\n## EXECUTIVE SUMMARY\n\nStripe remains a leading global financial infrastructure platform with ~$70B valuation (February 2024) and $1T+ annual payment volume across 40+ countries, but faces material competitive and structural headwinds. Core API differentiation has eroded since 2020 as competitors (Adyen, PayPal/Braintree, Block/Square) have closed the developer-experience gap, forcing Stripe to compete on ecosystem depth, financial services breadth, and pl",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Stripe",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3229,
+      "output_tokens": 4728,
+      "wall_ms": 31333.219249994727,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.78,
+        "grounding": 0.82,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n**EXECUTIVE SUMMARY**\n\nStripe operates as a globally distributed payment processing platform valued at $70 billion (February 2024) with $1 trillion in annual payment volume crossed in 2023, positioning it as a mature infrastructure-layer competitor. The company faces intensifying competitive pressure from well-capitalized rivals (Adyen, PayPal/Braintree, Block/Square) who have meaningfully closed the API differentiation gap that histor",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Stripe",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5780,
+      "output_tokens": 4259,
+      "wall_ms": 22840.549875007127,
+      "quality": 0.7799999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.7,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: STRIPE\n\n## EXECUTIVE SUMMARY\n\nStripe operates as a mature, cash-flow-positive financial infrastructure company processing hundreds of billions in annual payment volume across 40+ countries, but faces significant competitive erosion of its historical API-quality differentiation moat. The company maintains a strong embedded position with key partners like Shopify despite losing exclusivity in 2017, yet confronts multi-front competition from specialized players (Ad",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5232,
+      "output_tokens": 6198,
+      "wall_ms": 37476.6184159962,
+      "quality": 0.8233333333333333,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.72,
+        "structure": 0.93
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n### EXECUTIVE SUMMARY\n\nAnthropic is a San Francisco-based AI safety company founded in 2021 that develops and commercializes the Claude family of large language models through consumer and developer channels. The company has raised over $10 billion in funding (including multi-billion commitments from Google and Amazon) and achieved an $800+ million annualized revenue run-rate by year-end 2024\u2014an 8x increase from the start of the yea",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10660,
+      "output_tokens": 6488,
+      "wall_ms": 28762.52041599946,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## EXECUTIVE SUMMARY\n\nAnthropic holds a \"distant second\" position to OpenAI in API revenue market share but is growing faster on a percentage basis, signaling intentional enterprise scaling. The company differentiates through three core pillars\u2014safety research, extended context windows (200K tokens standard, 1M for select customers), and developer ergonomics\u2014while facing competition across consumer (OpenAI's ChatGPT), open-weight (Meta's Llama, Mistra",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Anthropic",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3239,
+      "output_tokens": 4321,
+      "wall_ms": 26109.245332991122,
+      "quality": 0.7633333333333333,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.65,
+        "structure": 0.92
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n**EXECUTIVE SUMMARY**\n\nAnthropic has emerged as the clear second player in the generative AI market, with OpenAI dominating consumer chatbots while Anthropic differentiates on safety research, longer context windows (200K\u20131M tokens), and superior developer ergonomics. The company demonstrated exceptional growth momentum in 2024, scaling API revenue from ~$100M to $800M annualized while more than doubling headcount from 300 to 700 em",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Anthropic",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5775,
+      "output_tokens": 4153,
+      "wall_ms": 22944.75137499103,
+      "quality": 0.7399999999999999,
+      "quality_details": {
+        "coverage": 0.72,
+        "grounding": 0.62,
+        "structure": 0.88
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: ANTHROPIC\n\n## EXECUTIVE SUMMARY\n\nAnthropic has achieved significant competitive momentum in 2024, growing API market share faster than OpenAI on a percentage basis while maintaining a differentiated positioning around safety research, extended context windows (up to 1M tokens), and developer ergonomics. The company has scaled rapidly\u2014from ~$100M to $800M+ annualized revenue and from 300 to 700+ employees\u2014signaling strong product-market fit and investor confidenc",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 5124,
+      "output_tokens": 6117,
+      "wall_ms": 35018.63070800027,
+      "quality": 0.86,
+      "quality_details": {
+        "coverage": 0.85,
+        "grounding": 0.78,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## FIGMA COMPETITIVE INTELLIGENCE BRIEF\n\n---\n\n### EXECUTIVE SUMMARY\n\nFigma has consolidated near-dominant market share (70%+ adoption) among professional product-design teams at technology companies, displacing Sketch and neutralizing Adobe XD through a combination of web-native architecture and real-time multiplayer capabilities. The company faces a shifting competitive landscape: traditional design-tool competitors (Adobe, InVision) have exited or deprioritized the space, but",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "fine",
+      "llm_calls": 14,
+      "input_tokens": 10384,
+      "output_tokens": 7054,
+      "wall_ms": 35835.74220800074,
+      "quality": 0.82,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.72,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma dominates the professional design tool market with 70%+ adoption among tech company designers and has achieved profitability with $600M+ ARR as of 2024, following strong growth from ~$400M ARR in September 2022. The company's competitive position strengthened after Adobe's failed acquisition attempt (terminated December 2023 with a $1B break fee), which resulted in Adobe winding down Adobe XD development in 2023, eliminating Fi",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Figma",
+      "framework": "ac",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 3213,
+      "output_tokens": 4927,
+      "wall_ms": 30024.322416997165,
+      "quality": 0.8733333333333334,
+      "quality_details": {
+        "coverage": 0.85,
+        "grounding": 0.82,
+        "structure": 0.95
+      },
+      "output_head": "# BRIEFER_OUTPUT\n\n## COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n**Executive Summary**\n\nFigma has established near-dominant market share (70%+ usage among designers) in professional product-design tools, particularly within technology companies, following the exits of major competitors Adobe XD (2023) and InVision (2024). The company is expanding beyond core design tooling through product diversification (FigJam, Dev Mode, Figma Slides) and AI-assisted capabilities to address market maturation and de",
+      "error": ""
+    },
+    {
+      "run_idx": 4,
+      "target": "Figma",
+      "framework": "langgraph",
+      "mode": "compound",
+      "llm_calls": 6,
+      "input_tokens": 5628,
+      "output_tokens": 4024,
+      "wall_ms": 25390.799208005774,
+      "quality": 0.84,
+      "quality_details": {
+        "coverage": 0.82,
+        "grounding": 0.78,
+        "structure": 0.92
+      },
+      "output_head": "# COMPETITIVE INTELLIGENCE BRIEF: FIGMA\n\n## EXECUTIVE SUMMARY\n\nFigma has achieved near-dominant market position (70%+ designer adoption) as the first widely-adopted browser-based design tool enabling real-time multiplayer collaboration, fundamentally transforming the design industry. The competitive landscape has consolidated significantly, with Adobe halting XD development (2023) and InVision exiting the design-tool market (2024), reducing direct competition. However, Figma faces emerging threa",
+      "error": ""
+    }
+  ]
+}
