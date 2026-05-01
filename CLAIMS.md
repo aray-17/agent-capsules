@@ -109,11 +109,11 @@ merged prompts. Paper §7.4; data in
 ## Operational data not in this repository
 
 A larger body of operational evaluation work — per-call probes,
-overnight resilience harnesses, gap audits, multi-week eval logs,
-the full architecture document — is maintained outside this
-public repository. If your work depends on understanding *how*
-the paper's numbers were produced (rather than verifying *that*
-they reproduce), email **research@anindaray.com**.
+overnight resilience harnesses, gap audits, multi-week eval logs
+— is maintained outside this public repository. If your work
+depends on understanding *how* the paper's numbers were produced
+(rather than verifying *that* they reproduce), email
+**research@anindaray.com**.
 
 ## Citing
 
