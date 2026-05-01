@@ -32,6 +32,13 @@ Results are printed to stdout and appended to evals/last_eval.md when --live.
 from __future__ import annotations
 
 import argparse
+import sys
+from pathlib import Path
+
+# Allow `python evals/code_review.py` in addition to `python -m evals.code_review`.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from evals.shared.code_review  import (
     CodeReviewScriptedAdapter, TASK_TEMPLATE, PIPELINE_DESCRIPTION,

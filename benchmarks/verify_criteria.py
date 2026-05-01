@@ -32,7 +32,14 @@ from __future__ import annotations
 
 import argparse
 import re
+import sys
 from dataclasses import dataclass, field
+from pathlib import Path
+
+# Allow `python benchmarks/verify_criteria.py` in addition to `python -m`.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from agentic_capsules.api.state import PipelineState
 from agentic_capsules.controller.policy import ControllerPolicy

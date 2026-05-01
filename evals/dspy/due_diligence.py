@@ -20,7 +20,13 @@ financial_model, risk_report, investment_brief).
 
 from __future__ import annotations
 
-import dspy
+try:
+    import dspy
+except ImportError as e:  # pragma: no cover
+    raise ImportError(
+        "dspy is required to run the DSPy head-to-head eval. "
+        "Install with: pip install -e '.[evals]'"
+    ) from e
 
 
 # ---------------------------------------------------------------------------

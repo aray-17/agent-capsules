@@ -42,6 +42,7 @@ gemini = ["google-genai"]
 redis = ["redis"]
 demo = ["streamlit", "plotly"]
 docs = ["sphinx", "sphinx-rtd-theme"]
+evals = ["dspy"]
 dev = [
     "pytest",
     "fakeredis",

@@ -5,7 +5,8 @@ Defines the space over which agents are batched in iteration-space
 composition (Phase 2). A TagSpace with one dimension maps to a flat
 list of items. Multiple dimensions produce a cross-product.
 
-Example (§3.2.1 Tag Dimension Registry):
+Example (§3.2.1 Tag Dimension Registry)::
+
     space = TagSpace(
         agent_name="analyst",
         dimensions=[

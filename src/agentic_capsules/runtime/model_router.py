@@ -5,7 +5,8 @@ Enables multi-model execution: different agents in the same hierarchy can
 be routed to different LLM endpoints (e.g. fast/cheap model for fact-checking,
 powerful model for synthesis) without changing the executor.
 
-Usage:
+Usage::
+
     router = ModelRouter(
         default=AnthropicAdapter(),
         routes={
