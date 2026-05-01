@@ -7,37 +7,45 @@ Holds one GroupControllerState per CompoundCapsule (group) and manages:
   - Latency and token-efficiency tracking per mode (Phase 12)
   - Persistence via SyncBackend (in-memory default, Redis for production)
 
-The confidence model:
-  confidence = (observations in window that meet threshold) / len(window)
-  Switch only when: len(observations) >= min_observations
-                AND confidence >= policy.confidence
+The confidence model::
+
+    confidence = (observations in window that meet threshold) / len(window)
+    Switch only when: len(observations) >= min_observations
+                  AND confidence >= policy.confidence
 
 Phase 11 — multi-signal scoring:
-  When ControllerPolicy.score_weights is set, observations are multi-signal
-  composition scores rather than raw overhead_ratio values.  Score formula:
+
+When ControllerPolicy.score_weights is set, observations are multi-signal
+composition scores rather than raw overhead_ratio values. Score formula::
+
     score = w1 * overhead_ratio
           + w2 * min(agent_count / 4, 1.0)
           + w3 * min(avg_output_tokens / 300, 1.0)
           + w4 * min(tool_calls_per_agent / 3, 1.0)
           - w5 * min(depth / max(agent_count - 1, 1), 1.0)
-  This fires correctly with real LLMs where overhead_ratio alone is ~5-15%.
+
+This fires correctly with real LLMs where overhead_ratio alone is ~5-15%.
 
 Phase 12 — latency and token-efficiency gates:
-  After switching to COMPOUND, two additional gates can trigger DECOMPOSE:
+
+After switching to COMPOUND, two additional gates can trigger DECOMPOSE::
+
     Latency gate:       mean(latency_compound_ms) > latency_threshold_ms
     Token-reduction:    mean(tokens_compound) >= mean(tokens_fine)
                         (COMPOUND using more tokens than FINE — no efficiency gain)
 
 Phase 12 — quality gate (T-033):
-  Proactive shadow comparison on first FINE → COMPOUND switch:
-    On the run where confidence first reaches the threshold, the compiler
-    runs both FINE and COMPOUND (one extra LLM call set), evaluates quality
-    via QualityEvaluator, and only commits the switch if
-    quality_score >= policy.quality_floor.
-  Reactive rolling quality gate (post-switch):
-    Each COMPOUND run records a quality score in quality_scores.
-    get_recommendation() returns DECOMPOSE if:
-      mean(quality_scores[-window:]) < policy.quality_floor
+
+Proactive shadow comparison on first FINE → COMPOUND switch:
+on the run where confidence first reaches the threshold, the compiler
+runs both FINE and COMPOUND (one extra LLM call set), evaluates quality
+via QualityEvaluator, and only commits the switch if
+``quality_score >= policy.quality_floor``.
+
+Reactive rolling quality gate (post-switch):
+each COMPOUND run records a quality score in ``quality_scores``.
+``get_recommendation()`` returns DECOMPOSE if
+``mean(quality_scores[-window:]) < policy.quality_floor``.
 """
 from __future__ import annotations
 

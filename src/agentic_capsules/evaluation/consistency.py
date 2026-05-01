@@ -18,9 +18,10 @@ Two interfaces:
       Mean pairwise similarity is the consistency score.
 
 Similarity options:
-  "jaccard"  (default) — token-level Jaccard coefficient, zero dependencies.
-  "cosine"   — cosine similarity via sentence-transformers (skipped gracefully
-               if the package is not installed).
+
+- ``"jaccard"`` (default) — token-level Jaccard coefficient, zero dependencies.
+- ``"cosine"`` — cosine similarity via sentence-transformers (skipped gracefully
+  if the package is not installed).
 
 Phase 12 ref: P12-4, T-027.
 """

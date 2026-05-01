@@ -4,14 +4,15 @@ Telemetry Collector — measures runtime signals per capsule execution.
 Tracks the metrics defined in design plan §6.1 and feeds them back to
 the GranularityController (Phase 5).
 
-Metrics per capsule (§6.1):
-  tokens_coordination  — overhead tokens: delimiters, headings, instructions
-  tokens_reasoning     — content tokens (total - coordination)
-  overhead_ratio       — tokens_coordination / total_tokens
-  latency_ms           — wall-clock time for the capsule
-  batch_size           — number of items (1 for single-agent, K for iteration)
-  error_count          — number of retried/failed steps (Phase 5)
-  context_utilization  — tokens / adapter context_window (Phase 5)
+Metrics per capsule (§6.1)::
+
+    tokens_coordination  — overhead tokens: delimiters, headings, instructions
+    tokens_reasoning     — content tokens (total - coordination)
+    overhead_ratio       — tokens_coordination / total_tokens
+    latency_ms           — wall-clock time for the capsule
+    batch_size           — number of items (1 for single-agent, K for iteration)
+    error_count          — number of retried/failed steps (Phase 5)
+    context_utilization  — tokens / adapter context_window (Phase 5)
 
 Design plan ref: §3.1 (Telemetry Collector), §6.1
 """
@@ -38,13 +39,13 @@ class TelemetryRecord:
 
     T-047 COGS fields (input_tokens, output_tokens, llm_call_count) capture
     the actual API billing signals needed to compute dollar savings and GPU
-    utilisation improvements:
+    utilisation improvements::
 
-      input_tokens   — billed prompt tokens (prefill FLOPs on GPU)
-      output_tokens  — billed completion tokens (decode steps on GPU;
-                       each token = one sequential forward pass)
-      llm_call_count — number of adapter.complete() invocations (each call
-                       is one scheduling unit: KV alloc + auth + routing)
+        input_tokens   — billed prompt tokens (prefill FLOPs on GPU)
+        output_tokens  — billed completion tokens (decode steps on GPU;
+                         each token = one sequential forward pass)
+        llm_call_count — number of adapter.complete() invocations (each call
+                         is one scheduling unit: KV alloc + auth + routing)
 
     COMPOUND mode reduces llm_call_count from N (FINE) to 1 and eliminates
     repeated system-prompt and task-context overhead from input_tokens.
@@ -77,9 +78,11 @@ class TelemetryRecord:
         """
         Coordination tokens / total tokens.
 
-        This is the primary signal the GranularityController acts on:
-          > OVERHEAD_THRESHOLD (0.40)  → compose
-          < OVERHEAD_LOW (0.15)        → consider decomposing
+        This is the primary signal the GranularityController acts on::
+
+            > OVERHEAD_THRESHOLD (0.40)  → compose
+            < OVERHEAD_LOW (0.15)        → consider decomposing
+
         Design plan ref: §3.2.2, §6.1
         """
         if self.total_tokens == 0:

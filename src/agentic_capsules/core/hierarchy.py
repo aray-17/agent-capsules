@@ -172,10 +172,11 @@ class CapsuleHierarchy:
     The root of the composition tree.
 
     Stores the full hierarchy and provides:
-    - `get_level(n)` — retrieve all capsule nodes at depth n (used by the
-       Granularity Controller to navigate between fine and coarse execution)
-    - `all_leaves()` — iterate every AgentLeaf in definition order
-    - `validate()` — run rule checks (delegates to core/rules.py)
+
+    - ``get_level(n)`` — retrieve all capsule nodes at depth n (used by the
+      Granularity Controller to navigate between fine and coarse execution)
+    - ``all_leaves()`` — iterate every AgentLeaf in definition order
+    - ``validate()`` — run rule checks (delegates to core/rules.py)
 
     Depth 0 = root compound (most coarse); depth = max_depth = all leaves
     (most fine-grained, one capsule per agent).

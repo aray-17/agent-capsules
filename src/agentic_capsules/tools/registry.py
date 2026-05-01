@@ -49,7 +49,8 @@ class ToolRegistry:
     `tools=["tool_name"]` on their AgentStepCapsule can resolve the
     definition at execution time.
 
-    Usage:
+    Usage::
+
         registry = ToolRegistry()
         registry.register(ToolDefinition(
             name="web_search",

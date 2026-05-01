@@ -6,10 +6,11 @@ to the LLM between steps. Only the final step's output crosses the capsule
 boundary back to the agent.
 
 Composition rules enforced at definition time:
-  T-Rule 1 — Schema Compatibility: each step's input_from must reference a
-             prior step's output_key, or be None (uses external input)
-  T-Rule 2 — Idempotency: non-idempotent steps emit a warning (not hard error)
-  T-Rule 4 — Side Effect Ordering: read_only steps may be parallelized
+
+- **T-Rule 1 — Schema Compatibility**: each step's input_from must reference a
+  prior step's output_key, or be None (uses external input).
+- **T-Rule 2 — Idempotency**: non-idempotent steps emit a warning (not hard error).
+- **T-Rule 4 — Side Effect Ordering**: read_only steps may be parallelized.
 
 T-Rule 3 (latency budgeting) is enforced at runtime by ToolOrchestrator.
 
@@ -23,14 +24,14 @@ from dataclasses import dataclass, field
 class ToolStep:
     """One step in a ToolCapsule chain.
 
-    tool_name  — identifier routed by the ToolAdapter
-    input_keys — keys expected in this step's input dict
-    output_key — key under which this step's result is stored in the chain context
-    input_from — if set, pulls from a prior step's output_key; otherwise uses
-                 the chain's external input
-    read_only  — T-Rule 4: no side effects; orchestrator may parallelize
-    idempotent — T-Rule 2: False triggers a warning at validation time
-    timeout_s  — T-Rule 3: per-step timeout enforced by the orchestrator
+    :ivar tool_name: identifier routed by the ToolAdapter.
+    :ivar input_keys: keys expected in this step's input dict.
+    :ivar output_key: key under which this step's result is stored in the chain context.
+    :ivar input_from: if set, pulls from a prior step's output_key; otherwise uses
+        the chain's external input.
+    :ivar read_only: T-Rule 4 — no side effects; orchestrator may parallelize.
+    :ivar idempotent: T-Rule 2 — False triggers a warning at validation time.
+    :ivar timeout_s: T-Rule 3 — per-step timeout enforced by the orchestrator.
     """
     tool_name: str
     input_keys: list[str]

@@ -31,11 +31,12 @@ class PipelineResult:
         latency_ms:     Wall-clock time for the full pipeline run (ms).
         efficiency:     Phase 12 — per-group efficiency summary, populated from
                         the rolling GroupControllerState window after each run.
-                        Keys are group names; each value is a dict with:
-                          token_reduction_pct  — % tokens saved vs FINE (positive = savings)
-                          mean_latency_fine_ms — rolling mean latency in FINE mode
-                          mean_latency_compound_ms — rolling mean latency in COMPOUND mode
-                        Fields are None when not enough data for that mode yet.
+                        Keys are group names; each value is a dict with
+                        ``token_reduction_pct`` (% tokens saved vs FINE; positive =
+                        savings), ``mean_latency_fine_ms`` (rolling mean latency in
+                        FINE mode), and ``mean_latency_compound_ms`` (rolling mean
+                        latency in COMPOUND mode). Fields are None when not enough
+                        data for that mode yet.
         quality:        Phase 12 — per-group rolling mean quality score (0.0–1.0).
                         Empty dict when no evaluator was passed to pipeline.run().
         quality_details: Phase 12 — per-group last QualityScore.details dict for

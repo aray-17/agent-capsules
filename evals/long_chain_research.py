@@ -46,6 +46,12 @@ import hashlib
 import os
 import pickle
 import sys
+from pathlib import Path
+
+# Allow `python evals/long_chain_research.py` in addition to `python -m evals.long_chain_research`.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from evals.shared.long_chain_research import (
     LongChainScriptedAdapter, TASK_TEMPLATE, PIPELINE_DESCRIPTION,

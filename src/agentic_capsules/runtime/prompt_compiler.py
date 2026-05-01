@@ -262,12 +262,13 @@ class PromptCompiler:
 
         `merged_output_structure` (M-1 Track A): adds per-phase output pressure
         after the output instruction to resist context compression.
-        ``"budgeted"``          — fixed "Target approximately 800 words."
-        ``"budgeted_adaptive"`` — per-agent token target from ``per_agent_budgets``
-                                  (dict of leaf.name → token budget); falls back
-                                  to 800 if the agent is not in the dict.
-        ``"reinforced"``        — attention-redirect back to agent's own instructions.
-        ``"none"``              — no hint (default).
+
+        - ``"budgeted"`` — fixed "Target approximately 800 words."
+        - ``"budgeted_adaptive"`` — per-agent token target from ``per_agent_budgets``
+          (dict of leaf.name → token budget); falls back to 800 if the agent is
+          not in the dict.
+        - ``"reinforced"`` — attention-redirect back to agent's own instructions.
+        - ``"none"`` — no hint (default).
 
         `per_agent_budgets` (M-1 ``"budgeted_adaptive"``): maps leaf.name to an
         integer token budget (80% of that agent's mean FINE output tokens).
@@ -733,15 +734,15 @@ class PromptCompiler:
 
         `output_guidance` (O-1 Track A): injects a length hint after the output
         instruction to reduce token usage without quality regression.
-        ``"auto"``      — T-058 observations-based gate. Applies concise when
-                          ``mean_fine_tokens >= guidance_threshold``; otherwise
-                          applies no guidance. Falls back to no guidance when
-                          either input is None (e.g. FINE mode without
-                          per-group observations).
-        ``"concise"``   — fixed 300–400 word target (explicit override).
-        ``"moderate"``  — fixed 500–600 word target.
-        ``"brief"``     — fixed 200 word target.
-        ``"none"``      — no guidance.
+
+        - ``"auto"`` — T-058 observations-based gate. Applies concise when
+          ``mean_fine_tokens >= guidance_threshold``; otherwise applies no
+          guidance. Falls back to no guidance when either input is None
+          (e.g. FINE mode without per-group observations).
+        - ``"concise"`` — fixed 300–400 word target (explicit override).
+        - ``"moderate"`` — fixed 500–600 word target.
+        - ``"brief"`` — fixed 200 word target.
+        - ``"none"`` — no guidance.
 
         `mean_fine_tokens`: mean FINE avg_output_tokens for this group, used by
         ``"auto"``. Pass None to disable auto-gating (falls back to no guidance).

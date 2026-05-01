@@ -12,13 +12,14 @@ Main feedback loop (per batch):
      vice versa), the required hysteresis count grows as backoff_base^n_flips
      for the opposing direction, preventing rapid oscillation.
 
-Controller decision logic (§3.2.2):
-  overhead_ratio > overhead_high                            → COMPOSE
-  error_rate > error_rate_high                              → COMPOSE
-  context_util > context_util_high                          → DECOMPOSE
-  parallelism_available > factor × capsules_in_flight
-    AND overhead_ratio < overhead_low                       → DECOMPOSE
-  else                                                      → MAINTAIN
+Controller decision logic (§3.2.2)::
+
+    overhead_ratio > overhead_high                            → COMPOSE
+    error_rate > error_rate_high                              → COMPOSE
+    context_util > context_util_high                          → DECOMPOSE
+    parallelism_available > factor × capsules_in_flight
+      AND overhead_ratio < overhead_low                       → DECOMPOSE
+    else                                                      → MAINTAIN
 
 Design plan ref: §3.1 (Granularity Controller), §3.2.2, §5.2 Phase 5
 """

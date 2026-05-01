@@ -860,18 +860,17 @@ class Pipeline:
         Args:
             task:      Input text passed to the first agent.
             adapter:   LLM adapter (AnthropicAdapter, OpenAIAdapter, ScriptedAdapter…).
-            mode:      Execution mode.
-                       "auto"     — controller auto-manages composition per group.
-                       "observe"  — shadow mode: observes but never switches.
-                       "fine"     — locked FINE for all groups.
-                       "compound" — locked COMPOUND for all groups.
+            mode:      Execution mode. ``"auto"`` — controller auto-manages
+                       composition per group. ``"observe"`` — shadow mode: observes
+                       but never switches. ``"fine"`` — locked FINE for all groups.
+                       ``"compound"`` — locked COMPOUND for all groups.
             task_id:   Stable identifier for this run (auto-generated if None).
-            evaluator: Phase 12 — optional quality evaluator.  When set and
-                       ``policy.quality_floor`` is configured, the controller will:
-                         1. Run a shadow COMPOUND comparison on FINE→COMPOUND switch
-                            and block the switch if quality < quality_floor.
-                         2. Record rolling quality scores in COMPOUND mode and revert
-                            to FINE if the rolling mean drops below quality_floor.
+            evaluator: Phase 12 — optional quality evaluator. When set and
+                       ``policy.quality_floor`` is configured, the controller will
+                       (1) run a shadow COMPOUND comparison on FINE→COMPOUND switch
+                       and block the switch if quality < quality_floor, and
+                       (2) record rolling quality scores in COMPOUND mode and revert
+                       to FINE if the rolling mean drops below quality_floor.
                        No-op when None (default — no extra LLM calls).
             parallel:  Opt-in threaded executor (T-054). When True, dispatches
                        to ``_ParallelPipelineCompiler``, which runs independent

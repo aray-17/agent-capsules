@@ -10,6 +10,7 @@ Follows the same pattern as OpenAIAdapter:
 - Token counting uses a character-based heuristic (no official tiktoken equivalent)
 
 Gemini-specific notes:
+
 - System messages are passed via GenerateContentConfig.system_instruction,
   not inline in the message list.
 - Assistant role in Gemini is "model" not "assistant".

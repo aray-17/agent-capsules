@@ -44,6 +44,12 @@ import pickle
 import re
 import sys
 import time
+from pathlib import Path
+
+# Allow `python evals/multi_source_brief.py` in addition to `python -m evals.multi_source_brief`.
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from agentic_capsules.api.compiler import _PipelineCompiler
 from evals.shared.multi_source_brief import build_pipeline
