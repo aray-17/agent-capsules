@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or the underlying paper, please cite both the paper and this repository."
+title: "Agent Capsules: Quality-Gated Granularity Control for Multi-Agent LLM Pipelines"
+type: software
+authors:
+  - given-names: Aninda
+    family-names: Ray
+    email: research@anindaray.com
+    orcid: "https://orcid.org/0009-0007-3029-8265"
+repository-code: "https://github.com/aray-17/agent-capsules"
+url: "https://github.com/aray-17/agent-capsules"
+license: Apache-2.0
+version: "1.0-arxiv"
+date-released: "2026-04-29"
+keywords:
+  - llm
+  - multi-agent
+  - agent-framework
+  - agentic
+  - orchestration
+  - quality-gated-execution
+
+preferred-citation:
+  type: article
+  title: "Agent Capsules: Quality-Gated Granularity Control for Multi-Agent LLM Pipelines"
+  authors:
+    - given-names: Aninda
+      family-names: Ray
+      email: research@anindaray.com
+      orcid: "https://orcid.org/0009-0007-3029-8265"
+  year: 2026
+  url: "https://github.com/aray-17/agent-capsules"
+  # When the arXiv URL is live, set:
+  #   note: "arXiv:YYMM.NNNNN [cs.LG]"
+  # and update url to the arXiv abstract page.
+  notes: "Preprint, forthcoming on arXiv."
