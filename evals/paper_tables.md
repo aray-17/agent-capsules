@@ -38,6 +38,26 @@ pair. Gemini-2.5-pro scores 0.177 – 0.180 — statistically identical
 to GPT-4o-mini despite being a more capable model — confirming the
 score is a behavioral (not capability) signal.
 
+#### Per-run scores behind Table 4
+
+The mean ± std in the table above is computed from these per-run
+composition scores (research group, FINE mode, 5-run experiments,
+balanced sensitivity, due-diligence pipeline, score weights
+``(0.45, 0.25, 0.0, 0.25, 0.05)``):
+
+| Model        | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Computed mean | Computed std | Source                              |
+|--------------|------:|------:|------:|------:|------:|--------------:|-------------:|-------------------------------------|
+| GPT-4o-mini  | 0.179 | 0.174 | 0.178 | 0.177 | 0.178 | 0.177         | 0.002        | overnight log entry, 2026-03-30 02:24 UTC |
+| GPT-4o       | 0.177 | 0.185 | 0.183 | 0.178 | 0.181 | 0.181         | 0.003        | overnight log entry, 2026-03-30 03:11 UTC |
+| Sonnet       | 0.211 | 0.253 | 0.253 | 0.253 | 0.254 | 0.245         | 0.019        | overnight log entry, 2026-03-30 03:11 UTC |
+| Haiku        | 0.304 | 0.268 | 0.346 | 0.263 | 0.314 | 0.299         | 0.034        | overnight log entry, 2026-03-30 00:08 UTC |
+
+Each row's computed mean and std match the paper's reported value
+to three decimals. The Gemini-2.5-flash-lite row (mean 0.208 ± 0.001)
+came from a Pareto-format sweep on 2026-03-30 whose per-run scores
+were not retained at run-level granularity in the controller log;
+only the aggregate is preserved.
+
 ---
 
 ## §7.4 — Negative Result: Reasoning Phase A Does Not Rescue Compound (N1)
@@ -291,9 +311,8 @@ single call in FINE, so compound adds overhead without benefit.
 
 ## What is *not* in this file
 
-Per the public-repo strategy, the following stay in the private
-operational repo and are available on request to
-**research@anindaray.com**:
+The following are not included here; if your work needs them,
+email **research@anindaray.com**:
 
 - Raw per-cell probe traces and overnight run logs that produced
   these table values.
