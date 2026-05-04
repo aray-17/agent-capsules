@@ -132,12 +132,14 @@ open _build/html/index.html
   title  = {Agent Capsules: Quality-Gated Granularity Control for Multi-Agent LLM Pipelines},
   author = {Ray, Aninda},
   year   = {2026},
-  note   = {arXiv preprint, forthcoming.},
-  url    = {https://github.com/aray-17/agent-capsules}
+  eprint = {2605.00410},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  url    = {https://arxiv.org/abs/2605.00410}
 }
 ```
 
-The arXiv URL will be added here once the preprint is live.
+Preprint: <https://arxiv.org/abs/2605.00410>
 
 ## Issues and pull requests
 
